@@ -12,7 +12,15 @@ Unity is the only dependency. Features include:
 
 The goal is to avoid writing custom code for each data type you have in your game.
 
-## Examples:
+## Important concepts
+
+1) Element. Base class that properties, arrays, and components derive from.
+2) Property. Essentially an optional that wraps a value. They should always be non-null and should only have one "owner."
+3) Component. Houses elements defined by fields. Supports addition of new elements, but cannot be received by type, only index.
+4) Container. Component that supports retrieval of elements via their type.
+5) Array element. An array of elements. For example, a string property is an array of character properties.
+
+## Examples
 
 ```csharp
 public class OuterComponent : ComponentBase
@@ -21,7 +29,7 @@ public class OuterComponent : ComponentBase
     public InnerComponent inner;
 
     public UIntProperty @uint;
-    public ArrayProperty<UIntProperty> intArray = new ArrayProperty<UIntProperty>(2);
+    public ArrayElement<UIntProperty> intArray = new ArrayElement<UIntProperty>(2);
     public VectorProperty vector;
     public Container container = new Container(typeof(ByteProperty));
 

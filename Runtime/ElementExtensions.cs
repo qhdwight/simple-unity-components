@@ -151,12 +151,12 @@ namespace Swihoni.Components
                         }
                         break;
                     }
-                    case ArrayPropertyBase a1:
+                    case ArrayElementBase a1:
                     {
                         for (var j = 0; j < a1.Length; j++)
                         {
                             var zippedElements = new TriArray<ElementBase>();
-                            for (var i = 0; i < size; i++) zippedElements[i] = (ElementBase) ((ArrayPropertyBase) _zip[i]).GetValue(j);
+                            for (var i = 0; i < size; i++) zippedElements[i] = (ElementBase) ((ArrayElementBase) _zip[i]).GetValue(j);
                             NavigateRecursively(zippedElements);
                         }
                         break;
